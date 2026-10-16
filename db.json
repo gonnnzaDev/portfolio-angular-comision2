@@ -1,0 +1,160 @@
+{
+  "proyectos": [
+    {
+      "id": "1",
+      "nombre": "CanguPay",
+      "descripcionCorta": "Pagos B2B condicionados sobre Stellar: el comprador retiene los fondos, un agente verifica la evidencia y un contrato Soroban libera, devuelve o divide el dinero.",
+      "descripcion": "Protocolo de pago B2B condicionado sobre Stellar, pensado para resolver el deadlock de confianza en la primera operación entre un proveedor pequeño y un comprador nuevo: el proveedor no quiere entregar sin saber si hay fondos, y el comprador no quiere pagar sin comprobar la entrega. El flujo tiene siete pasos explícitos: el comprador crea la operación definiendo proveedor, resolver, monto, plazos y fallback; fondea el contrato con CPUSD; el proveedor envía el hash del bundle de evidencia; un agente aplica reglas documentales deterministas y atestigua PASS o FAIL; y según el resultado, el comprador aprueba, disputa o deja vencer el plazo, mientras que un FAIL habilita una única corrección del proveedor antes del reembolso. Incluye una sola disputa por operación, resuelta por un actor humano que decide RELEASE, REFUND o SPLIT y que, si no actúa, dispara el fallback preacordado. Todos los vencimientos los ejecuta finalize(), una función pública e idempotente que cualquier cuenta puede invocar, de modo que ningún silencio deja los fondos atrapados. La máquina de estados termina en cuatro estados terminales: CANCELLED, RELEASED, REFUNDED y SPLIT. El contrato está escrito en Rust sobre Soroban con una instancia por operación, el frontend es Next.js con App Router y Freighter, y el tiempo lo decide siempre el timestamp del ledger, nunca el reloj del navegador. Es un prototipo con documentación de reglas, backlogs y bitácora de decisiones, y CPUSD es un activo sintético de testnet sin respaldo en dólares.",
+      "tecnologias_utilizadas": "Rust,  Stellar, Next.js, TypeScript, Tailwind CSS, Python, Docker",
+      "imagen": "/logos/cangupay.svg",
+      "link": "https://github.com/gonnnzaDev/CanguPay"
+    },
+    {
+      "id": "2",
+      "nombre": "Khipu",
+      "descripcionCorta": "Validación de facturas con IA multimodal local y pagos on-chain para PyMEs de Latinoamérica. Corre local, paga on-chain.",
+      "descripcion": "Pipeline end-to-end de conciliación de facturas para pequeñas y medianas empresas logísticas de Latinoamérica, que hoy procesan cientos de facturas por mes a mano y pierden entre 5.000 y 50.000 dólares al año por pagos duplicados, proveedores falsos y discrepancias de cantidad que recién se detectan cuando ya es tarde. Khipu extrae los datos de cualquier foto de factura, incluso arrugada o de baja calidad, y los valida con un modelo multimodal corriendo localmente en la laptop del usuario: sin nube y sin fuga de datos, que es justamente el requisito que las empresas de la región no pueden negocioar. Sobre esa extracción concilia automáticamente contra las órdenes de compra y las guías de entrega, y emite un semáforo de decisión con tres salidas: aprobar, revisar a mano o bloquear la operación. Cuando la factura pasa el control, el pago se liquida en un clic a través de MetaMask, en USDT sobre Ethereum, cerrando el circuito de validación y pago sin intervención manual intermediaria. El nombre viene del quechua, donde khipu era el sistema de contabilidad del Imperio inca. El proyecto se divide en un backend en Python con FastAPI y un frontend en TypeScript, y ataca los tres problemas que la validación manual no cubre.",
+      "tecnologias_utilizadas": "Python, FastAPI, TypeScript,  Web3, React",
+      "imagen": "/logos/khipu.png",
+      "link": "https://github.com/gonnnzaDev/vera"
+    },
+    {
+      "id": "3",
+      "nombre": "Hazel",
+      "descripcionCorta": "Chat tipo Discord autoalojado: levantás el servidor en tu propia máquina, compartís el puerto y chateás. Sin cuentas ni terceros en el medio.",
+      "descripcion": "Chat tipo Discord autoalojado, con la premisa de que no hay ninguna empresa ni servidor de terceros en el medio: prendés el servidor en tu propia computadora, compartís la dirección con tus amigos y chatean. No hay cuentas ni registro: se entra con un nombre y listo, y el mismo nombre puede existir en dos servidores distintos sin que colisionen, porque la identidad es local al servidor. La consecuencia honesta del diseño es que no hay sorpresas: si el servicio se cae, es porque apagaste la computadora, y eso es exactamente lo que el proyecto asume en lugar de ocultar. Se instala de dos maneras, con Docker mediante un script de setup y docker compose, o de forma manual con Python 3.14 o superior, PostgreSQL y Kafka, usando uv para la gestión del entorno y Alembic para las migraciones de esquema, más un Makefile con las tareas comunes del día a día. Está en desarrollo un instalador de un solo paso para Windows, macOS, Linux y Android bajo Termux. El frontend es un cliente en TypeScript y el núcleo corre sobre Python.",
+      "tecnologias_utilizadas": "TypeScript, Python, PostgreSQL, Kafka, Docker",
+      "imagen": "/logos/hazel.svg",
+      "link": "https://github.com/gonnnzaDev/Hazel"
+    },
+    {
+      "id": "4",
+      "nombre": "MLC Padel Store",
+      "descripcionCorta": "Tienda online de MLC Padel: frontend en Angular y backend en Java con Spring Boot, con el sitio funcionando en producción.",
+      "descripcion": "Proyecto fullstack de una tienda de pádel, con el frontend en TypeScript sobre Angular y estilos propios escritos a mano, y una API REST en Java con Spring Boot y Maven, containerizada con Docker. El diferencial frente a un ejercicio de portfolio es que está desplegado y funcionando en producción con dominio propio, es decir que no es código de muestra sino un sistema en uso real: el frontend, el backend y la cadena de despliegue están levantados y operando. Incluye catálogo de productos, gestión de imágenes y la logística de una tienda que compite en un mercado concreto, con la particularidad de que el negocio está radicado en Mar del Plata.",
+      "tecnologias_utilizadas": "TypeScript, Angular, CSS, Java, Spring Boot, Maven, Docker",
+      "imagen": "/logos/mlc-padel.png",
+      "link": "https://github.com/gonnnzaDev/mlc-padel-front"
+    },
+    {
+      "id": "5",
+      "nombre": "gonnnza.dev",
+      "descripcionCorta": "Portfolio personal en Vite + TypeScript, con las secciones de perfil, tecnologías y contacto, publicado en Vercel.",
+      "descripcion": "Portfolio web donde reúno mi trabajo, tecnologías y enlaces, construido con Vite y TypeScript y desplegado en Vercel con deploy continuo, de modo que cada push a la rama principal publica los cambios sin intervención manual. La estructura sigue las secciones clásicas de un portfolio de desarrollador: un hero con el nombre y los enlaces a las redes profesionales, una sección de presentación con el perfil y las tecnologías agrupadas por categoría, un listado de proyectos con sus descripciones y stacks, y un pie de página con los datos de contacto. Toda la carga de imágenes de technologies se resuelve contra CDNs de iconos de terceros, con carga diferida en cada emblem para no bloquear el renderizado inicial, y el sitio está publicado bajo el dominio propio. Es la versión anterior, construida sobre Vite, del portfolio que hoy corre en Angular y que estás mirando en esta misma pantalla.",
+      "tecnologias_utilizadas": "TypeScript, Vite, CSS, HTML",
+      "imagen": "https://opengraph.githubassets.com/1/gonnnzaDev/gonnnza-portfolio",
+      "link": "https://github.com/gonnnzaDev/gonnnza-portfolio"
+    }
+  ],
+  "solicitudes": [
+    {
+    "id": "1",
+    "nombre_del_solicitante": "María Fernández",
+    "email": "maria.fernandez@example.com",
+    "tipo_de_proyecto": "Aplicación web",
+    "descripcion_de_la_idea_o_necesidad": "Necesito un sistema de turnos online para mi clínica odontológica: los pacientes reservan, el consultorio ve la agenda del día y recibe recordatorios automáticos por WhatsApp.",
+    "presupuesto_estimado": "Entre $500.000 y $1.000.000",
+    "fecha_aproximada": "2026-11-15"
+  },
+  {
+    "id": "2",
+    "nombre_del_solicitante": "María Fernández",
+    "email": "maria.fernandez@example.com",
+    "tipo_de_proyecto": "API / Backend",
+    "descripcion_de_la_idea_o_necesidad": "Empresa de logística necesita una API REST que integre su sistema de tracking con el que factura a los clientes. Tenemos el frontend hecho pero no sabemos armar el backend ni los endpoints de consulta.",
+    "presupuesto_estimado": "Entre $1.000.000 y $3.000.000",
+    "fecha_aproximada": "2026-12-01"
+  },
+  {
+    "id": "3",
+    "nombre_del_solicitante": "María Fernández",
+    "email": "maria.fernandez@example.com",
+    "tipo_de_proyecto": "Infraestructura / DevOps",
+    "descripcion_de_la_idea_o_necesidad": "Startup fintech que tiene toda su infraestructura en un solo servidor y se cae con cualquier despliegue. Busca containerizar con Docker, pipeline de CI/CD y backups automáticos.",
+    "presupuesto_estimado": "Más de $3.000.000",
+    "fecha_aproximada": "2026-10-20"
+  },
+  {
+    "id": "4",
+    "nombre_del_solicitante": "María Fernández",
+    "email": "maria.fernandez@example.com",
+    "tipo_de_proyecto": "Aplicación web",
+    "descripcion_de_la_idea_o_necesidad": "Necesito una web simple para mi taller mecánico: servicios, precios, horarios, ubicación en el mapa y un botón de WhatsApp. Nada complicado, pero no tengo idea de cómo hacerla ni dónde alojarla.",
+    "presupuesto_estimado": "Hasta $500.000",
+    "fecha_aproximada": "2026-10-18"
+  },
+  {
+    "id": "5",
+    "nombre_del_solicitante": "María Fernández",
+    "email": "maria.fernandez@example.com",
+    "tipo_de_proyecto": "Sitio web / Landing",
+    "descripcion_de_la_idea_o_necesidad": "Estudio de arquitectura necesita un sitio para mostrar el portfolio de obras y captar consultas de presupuesto. No es una tienda sino más bien una galería con una ficha por proyecto y un formulario de contacto. Las fotos en alta calidad hoy están perdidas en un Drive compartido.",
+    "presupuesto_estimado": "Hasta $500.000",
+    "fecha_aproximada": "2026-10-22"
+  },
+  {
+    "id": "6",
+    "nombre_del_solicitante": "María Fernández",
+    "email": "maria.fernandez@example.com",
+    "tipo_de_proyecto": "E-commerce",
+    "descripcion_de_la_idea_o_necesidad": "Marca de cosmética artesanal de Lanús quiere montar su tienda online: catálogo de unos 300 productos con variantes, stock que se descuenta al comprar, envíos a todo el país y pagos con Mercado Pago. Hoy venden por Instagram y pierden ventas porque no contestan a tiempo.",
+    "presupuesto_estimado": "Entre $1.000.000 y $3.000.000",
+    "fecha_aproximada": "2026-10-28"
+  },
+  {
+    "id": "7",
+    "nombre_del_solicitante": "María Fernández",
+    "email": "maria.fernandez@example.com",
+    "tipo_de_proyecto": "Automatización",
+    "descripcion_de_la_idea_o_necesidad": "Estudio contable factura a mano unas 400 facturas por mes en Excel. Necesito un script que lea el Excel, valide los datos contra el sistema del cliente y emita las facturas con numeración automática. Hoy el proceso les lleva dos días completos y arrastra errores de tipeo.",
+    "presupuesto_estimado": "Entre $500.000 y $1.000.000",
+    "fecha_aproximada": "2026-11-05"
+  },
+  {
+    "id": "8",
+    "nombre_del_solicitante": "María Fernández",
+    "email": "maria.fernandez@example.com",
+    "tipo_de_proyecto": "Sistema de gestión",
+    "descripcion_de_la_idea_o_necesidad": "Clínica veterinaria necesita llevar ficha de cada animal con su historial de consultas, vacunas y recordatorios de desparasitación. Hoy es papel en carpetas y se pierde. Lo que más necesitan es poder buscar rápido por nombre del animal o por teléfono del dueño.",
+    "presupuesto_estimado": "Entre $500.000 y $1.000.000",
+    "fecha_aproximada": "2026-11-12"
+  },
+  {
+    "id": "9",
+    "nombre_del_solicitante": "María Fernández",
+    "email": "maria.fernandez@example.com",
+    "tipo_de_proyecto": "Aplicación móvil",
+    "descripcion_de_la_idea_o_necesidad": "Gimnasio de Godoy Cruz necesita una app para que los socios reserven turno de clases sin llamar por teléfono ni mandar WhatsApp. Quieren ver el horario, reservar y que les llegue un recordatorio el día anterior. Hoy usan una planilla y pierden muchos turnos.",
+    "presupuesto_estimado": "Entre $1.000.000 y $3.000.000",
+    "fecha_aproximada": "2026-11-22"
+  },
+  {
+    "id": "10",
+    "nombre_del_solicitante": "María Fernández",
+    "email": "maria.fernandez@example.com",
+    "tipo_de_proyecto": "Base de datos",
+    "descripcion_de_la_idea_o_necesidad": "La cooperativa del barrio tiene todo el historial de socios y pagos en dos Access .mdb de 2009, con datos duplicados y campos mezclados. Hay que migrarlo a algo mantenible, decidir qué se conserva y dejar los respaldos automáticos. Nadie del equipo sabe cómo está armado.",
+    "presupuesto_estimado": "Entre $500.000 y $1.000.000",
+    "fecha_aproximada": "2026-12-10"
+  },
+  {
+    "id": "11",
+    "nombre_del_solicitante": "María Fernández",
+    "email": "maria.fernandez@example.com",
+    "tipo_de_proyecto": "Infraestructura / DevOps",
+    "descripcion_de_la_idea_o_necesidad": "Agencia de marketing con 12 clientes, cada cliente tiene su WordPress y se caen todos a la vez cuando hay un despliegue. Buscan un servidor donde aguante todo junto, backups automáticos y monitoreo que avise antes de que caiga.",
+    "presupuesto_estimado": "Más de $3.000.000",
+    "fecha_aproximada": "2026-12-05"
+  },
+  {
+    "id": "12",
+    "nombre_del_solicitante": "María Fernández",
+    "email": "maria.fernandez@example.com",
+    "tipo_de_proyecto": "Seguridad / Ciberseguridad",
+    "descripcion_de_la_idea_o_necesidad": "Startup fintech auditada y les pidieron endurecer el acceso: hoy los usuarios usan contraseña y 2FA por mail. Hay que sumar 2FA con app autenticadora, rate limiting en el login y cierre de sesión por inactividad, sin romper el flujo de pagos que ya anda en producción.",
+    "presupuesto_estimado": "Entre $1.000.000 y $3.000.000",
+    "fecha_aproximada": "2026-12-18"
+  }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

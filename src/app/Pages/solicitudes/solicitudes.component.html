@@ -1,0 +1,19 @@
+<div class="solicitudes-container">
+    <h3>Solicitudes</h3>
+
+    <div class="solicitudes-list">
+        
+        @for (s of solicitudes; track $index) {
+
+            <article class="solicitud">
+                <a routerLink="/solicitud/{{s.id}}">
+
+                    <p>{{s.fecha_aproximada}}</p>
+                    <p>{{s.tipo_de_proyecto}}</p>
+                </a>
+            </article>
+
+        }
+    </div>
+    
+</div>

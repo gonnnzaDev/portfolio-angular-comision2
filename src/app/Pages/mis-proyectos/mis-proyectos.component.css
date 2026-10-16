@@ -1,0 +1,98 @@
+.mis-proyectos-container {
+    margin-top: 15vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mis-proyectos-container h2 {
+    font-size: 80px;
+}
+
+.proyecto {
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 30px;
+    width: 80%;
+    margin: 30px auto;
+
+
+}
+
+.proyecto:hover{
+    transition: 500ms all ease-in-out;
+    background-color: rgba(10, 58, 136, 0.334);
+}
+
+.proyecto-info {
+    display: flex;
+    gap: 20px;
+
+}
+
+.art-nombre {
+    font-size: 30px;
+}
+
+
+
+.proyecto a {
+    cursor: default;
+}
+
+.proyecto figure img {
+    width: 100%;
+}
+
+.proyecto figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    max-width: 100px;
+}
+
+.proyectos-list {
+    justify-content: center;
+
+    gap: 20px;
+}
+
+.art-tecnologias {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+.art-tecnologias li {
+    display: flex;
+    align-items: center;
+}
+
+.art-tecnologias img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    transition: transform 200ms ease-in-out;
+}
+
+.art-tecnologias img:hover {
+    transform: scale(1.25);
+}
+
+/* Fallback para tecnologias sin icono en ningun catalogo */
+.art-tecnologias .tec-badge {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--primary-color-font);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 3px 8px;
+    opacity: 0.75;
+    white-space: nowrap;
+}

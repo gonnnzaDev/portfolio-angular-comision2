@@ -1,0 +1,75 @@
+<div class="form-container">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+        <h3 class="form-title">Contactame!</h3>
+        <fieldset>
+            <label for="">Email</label>
+            <input formControlName="email" type="text">
+            @if (form.get('email')?.touched && form.get('email')?.hasError("required")) {
+            <p class="error">El Email es obligatorio</p>
+            }
+            @if (form.get('email')?.touched && form.get('email')?.hasError("email")) {
+            <p class="error">El Email no es valido</p>
+            }
+        </fieldset>
+
+        <div class="division">
+            <fieldset>
+                <label for="">Fecha aproximada</label>
+                <input formControlName="fecha_aproximada" type="text">
+                @if (form.get('fecha_aproximada')?.touched && form.get('fecha_aproximada')?.hasError("required")) {
+                <p class="error"> la fecha es obligatoria</p>
+                }
+            </fieldset>
+            <fieldset>
+                <label for="">Nombre del Solicitante</label>
+                <input formControlName="nombre_del_solicitante" type="text">
+                @if (form.get('nombre_del_solicitante')?.touched &&
+                form.get('nombre_del_solicitante')?.hasError("required")) {
+                <p class="error"> El Nombre del solicitante es obligatorio</p>
+                }
+            </fieldset>
+
+
+        </div>
+
+        <div class="division">
+
+            <fieldset>
+                <label for="">Tipo de proyecto</label>
+                <input formControlName="tipo_de_proyecto" type="text">
+                @if (form.get('tipo_de_proyecto')?.touched && form.get('tipo_de_proyecto')?.hasError("required")) {
+                <p class="error"> El tipo es obligatorio</p>
+                }
+            </fieldset>
+
+            <fieldset>
+                <label for="">Presupuesto Estimado</label>
+                <input formControlName="presupuesto_estimado" type="text">
+                @if (form.get('presupuesto_estimado')?.touched &&
+                form.get('presupuesto_estimado')?.hasError("required")) {
+                <p class="error"> El presupuesto es obligatorio</p>
+                }
+            </fieldset>
+
+        </div>
+
+        <fieldset>
+            <label for="">Descripcion</label>
+            <textarea formControlName="descripcion_de_la_idea_o_necesidad" type="text"></textarea>
+            @if (form.get('descripcion_de_la_idea_o_necesidad')?.touched &&
+            form.get('descripcion_de_la_idea_o_necesidad')?.hasError("required")) {
+            <p class="error"> la descripcion es obligatoria</p>
+            }
+        </fieldset>
+
+
+
+        <div class="botones">
+
+            <a class="form-btn" routerLink="/">Volver</a>
+            <button class="form-btn" type="submit">Guardar</button>
+        </div>
+
+    </form>
+</div>

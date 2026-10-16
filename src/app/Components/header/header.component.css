@@ -1,0 +1,32 @@
+.nav-container{
+    display: flex;
+    position: fixed;
+    width: 70%;
+    background-color: var(--primary-color-nav);
+    height: 10vh;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    overflow: hidden;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.429);
+    z-index: 999;
+    backdrop-filter: blur(5px);
+    /*aca use ia para centrarlo no encontraba la forma :"v*/
+    left: 50%;
+    transform: translateX(-50%);
+    /*aca use ia para centrarlo no encontraba la forma :"v*/
+
+}
+
+.nav-container ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+.nav-container ul a {
+    text-decoration: none;
+}
+

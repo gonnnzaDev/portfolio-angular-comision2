@@ -1,0 +1,23 @@
+.footer-container{
+    position: fixed;
+    display: flex;
+    width: 80%;
+    bottom: 0;
+    left: 0;
+    margin-left: 3vw;
+    margin-bottom: 5px;
+
+}
+
+.footer-container svg {
+    width: 40px;
+    opacity: 40%;
+}
+
+.footer-container svg:hover {
+
+    opacity: 100%;
+    transition: 1s all ease-in-out;
+
+}
+

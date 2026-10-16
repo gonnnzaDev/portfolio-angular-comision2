@@ -1,0 +1,23 @@
+:root{
+    --primary-color-font: white;
+    --primary-color : rgb(34, 101, 164);
+    --primary-color-nav : rgba(34, 101, 164, 0.74);
+    --secundary-color : rgb(140, 51, 136);
+    --border-color : white;
+    --background-color : #041320;
+    --font : monospace;
+}
+
+* {
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--primary-color-font);
+    text-decoration: none;
+
+}
+
+body {
+    background-color: var(--background-color);
+}

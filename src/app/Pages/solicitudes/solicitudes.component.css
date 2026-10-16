@@ -1,0 +1,39 @@
+
+.solicitudes-container {
+    margin-top: 15vh;
+    display: flex;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+}
+.solicitudes-list {
+    width: 60%;
+    flex-direction: column;
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    overflow: scroll;
+    height: 70vh;
+    padding: 15px;
+    border: 1px solid white;
+    border-radius: 10px;
+    
+    
+}
+
+.solicitudes-container h3 {
+    font-size: 50px;
+}
+
+.solicitud {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.solicitud:hover {
+    transition: 500ms all ease-in-out;
+    background-color: rgba(24, 84, 140, 0.509);
+}

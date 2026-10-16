@@ -1,0 +1,39 @@
+<section class="proyecto-container">
+
+    <div class="proyecto">
+
+
+        <div class="proyecto-informacion">
+            <figure class="proyecto-imagen-container">
+
+                <img src="{{proyecto?.imagen}}" alt="">
+            </figure>
+
+            <p class="proyecto-titulo">
+                {{proyecto?.nombre}}
+            </p>
+
+            <h4 class="subtitulo-tecnologias">Tecnologias</h4>
+            <ul class="proyecto-tecnologias">
+                @for (t of tecnologias(); track t.nombre) {
+                    <li>
+                        @if (t.icono; as icono) {
+                        <img [src]="icono" [alt]="t.nombre" [title]="t.nombre" loading="lazy">
+                        } @else {
+                        <span class="tec-badge" [title]="t.nombre">{{ t.nombre }}</span>
+                        }
+                    </li>
+                }
+            </ul>
+
+            <h4 class="subtitulo-descripcion">Descripcion</h4>
+            <p class="proyecto-descripcion">
+                {{proyecto?.descripcion}}
+            </p>
+
+
+
+        </div>
+    </div>
+
+</section>

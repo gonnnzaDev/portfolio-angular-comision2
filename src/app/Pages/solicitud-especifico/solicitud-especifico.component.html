@@ -1,0 +1,36 @@
+<div class="solicitud-container">
+    <div class="solicitud-especifica">
+
+        <div class="solicitud-info">
+
+
+            <p class="titulo">
+                {{solicitud?.tipo_de_proyecto}}
+            </p>
+
+            <p>
+                {{solicitud?.nombre_del_solicitante}}
+            </p>
+            <p>
+                {{solicitud?.email}}
+            </p>
+
+            <p>
+                {{solicitud?.presupuesto_estimado}}
+            </p>
+            <p>
+                {{solicitud?.descripcion_de_la_idea_o_necesidad}}
+            </p>
+            <p>
+                {{solicitud?.fecha_aproximada}}
+            </p>
+            
+        </div>
+
+
+        <div class="solicitud-botones">
+            <a class="btn-editar" routerLink="/contactame-form/{{solicitud?.id}}">Editar</a>
+            <button class="btn-eliminar" (click)="eliminar()">Eliminar</button>
+        </div>
+    </div>
+</div>

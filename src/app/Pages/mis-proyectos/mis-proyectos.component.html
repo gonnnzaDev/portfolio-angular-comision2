@@ -1,0 +1,39 @@
+
+<section class="mis-proyectos-container">
+
+    <h2>Mis Proyectos</h2>
+    <div class="proyectos-list">
+
+        
+        @for (p of mis_proyectos; track $index) {
+            <article class="proyecto">
+                <a routerLink="/proyecto/{{p.id}}">
+                    <div class="proyecto-info">
+
+                        
+                        <figure>
+                            <img src={{p.imagen}} alt="">
+                        </figure>
+                        
+                        <div class="info-proyecto">
+                            <p class="art-nombre">{{p.nombre}}</p>
+                            <p class="art-descripcionCorta">{{p.descripcionCorta}}</p>
+                            <ul class="art-tecnologias">
+                                @for (t of tecnologiasDe(p); track t.nombre) {
+                                    <li>
+                                        @if (t.icono; as icono) {
+                                        <img [src]="icono" [alt]="t.nombre" [title]="t.nombre" loading="lazy">
+                                        } @else {
+                                        <span class="tec-badge" [title]="t.nombre">{{ t.nombre }}</span>
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </a>
+                </article>
+        }
+    </div>
+    </section>

@@ -1,0 +1,54 @@
+.solicitud-especifica {
+    width: 80%;
+    border: 1px solid white;
+    padding: 30px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: space-between;
+    background-color: rgba(15, 54, 99, 0.39);
+
+}
+
+.solicitud-container {
+    display: flex;
+    height: 85vh;
+    justify-content: center;
+    margin-top: 15vh;
+    ;
+
+}
+
+.solicitud-info {
+
+}
+
+.solicitud-info .titulo {
+    font-size: 80px;
+}
+
+.solicitud-botones{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.solicitud-botones
+.btn-editar,
+.solicitud-botones
+.btn-eliminar{
+    padding: 10px;
+    width: 40%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+}
+
+
+
+.btn-eliminar{
+    background-color: rgba(180, 2, 2, 0.428);
+    cursor: pointer;
+}
